@@ -9,6 +9,9 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+ 
+  
+    
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
     <!--
@@ -21,6 +24,8 @@
             <props>
                 <prop key="index.htm">indexController</prop>
                 <prop key="hola.htm">holaController</prop>
+                <prop key="gestionEmpleados.htm">geController</prop>
+                <prop key="empleados.htm">empleadosController</prop>
             </props>
         </property>
     </bean>
@@ -37,8 +42,19 @@
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
 
-    
-     <bean name="holaController"
+    <bean name="geController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="ge" />
+     
+    <bean name="holaController"
           class="com.luis.controllers.HolaMundoController"
            />
+    <bean name="empleadosController"
+        class="com.luis.controllers.EmpleadosController"     />
 </beans>
+
+
+
+
+
+
