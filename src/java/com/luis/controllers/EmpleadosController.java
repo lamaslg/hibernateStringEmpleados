@@ -6,11 +6,18 @@
 
 package com.luis.controllers;
 
+import com.luis.servicios.ManagerEmpleados;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.dao.support.DaoSupport;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
+import pojos.Empleado;
 
 /**
  *
@@ -18,12 +25,16 @@ import org.springframework.web.servlet.mvc.Controller;
  */
 public class EmpleadosController implements Controller{
 
+  
+
+  
     @Override
     public ModelAndView handleRequest(HttpServletRequest hsr,
             HttpServletResponse hsr1) throws Exception {
         
         Date d=new Date();
         
+      
         
         return new ModelAndView("empleados","fecha",d);
         
