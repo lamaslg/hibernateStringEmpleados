@@ -9,9 +9,12 @@ package com.luis.controllers;
 import com.luis.servicios.ManagerEmpleados;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.dao.support.DaoSupport;
@@ -23,9 +26,9 @@ import pojos.Empleado;
  *
  * @author luis
  */
-public class EmpleadosController implements Controller{
+public class EmpleadosController implements Controller,BeanFactoryAware{
 
-  
+  ManagerEmpleados dao;
 
   
     @Override
@@ -34,9 +37,20 @@ public class EmpleadosController implements Controller{
         
         Date d=new Date();
         
+        Collection<Empleado> c=dao.getAllEmpleados();
       
+        Map<String,Object> datos=new HashMap<String, Object>();
+        datos.put("fecha", d);
+        datos.put("empleados", c);
         
-        return new ModelAndView("empleados","fecha",d);
+        return new ModelAndView("empleados",datos);
+        
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory bf) throws BeansException {
+       
+        dao=(ManagerEmpleados) bf.getBean("daoEmpleado");
         
     }
     
