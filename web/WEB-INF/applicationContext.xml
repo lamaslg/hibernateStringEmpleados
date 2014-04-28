@@ -14,8 +14,8 @@
 
 <!--<bean id="propertyConfigurer"
       class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-      p:location="/WEB-INF/jdbc.properties" />-->
-          
+      p:location="/WEB-INF/jdbc.properties" />
+  -->        
           
 
 <bean id="dataSource"
@@ -60,9 +60,10 @@
      <property name="sessionFactory" ref="sessionFactory" />
  </bean>
  
+ <tx:annotation-driven transaction-manager="txManager"  
+                       proxy-target-class="true"/>
  
- 
- <bean id="springHibernateDao" 
+ <!--<bean id="springHibernateDao" 
        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
      <property name="transactionManager" ref="txManager" />
      <property name="target" ref="daoEmpleado" />
@@ -75,7 +76,7 @@
                 <prop key="update*">PROPAGATION_REQUIRED</prop>
             </props>
      </property>
- </bean>
+ </bean>-->
 
     
 </beans>

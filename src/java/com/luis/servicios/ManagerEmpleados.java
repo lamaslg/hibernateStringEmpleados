@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author luis
  */
-
+@Transactional
 public class ManagerEmpleados 
             extends HibernateDaoSupport{
     
