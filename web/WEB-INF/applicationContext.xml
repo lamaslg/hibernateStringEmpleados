@@ -10,9 +10,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
-       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/context/spring-mvc.xsd
-        "
+        http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+
+"
 
 >
 
@@ -22,7 +25,12 @@
       class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
       p:location="/WEB-INF/jdbc.properties" />
   -->        
-          
+    
+  <context:component-scan base-package="com.luis" />
+
+      
+       <mvc:annotation-driven/>           
+                      
 
 <bean id="dataSource"
     class="org.springframework.jdbc.datasource.DriverManagerDataSource"
@@ -67,6 +75,10 @@
  </bean>
  <bean id="daoConocimientos" 
        class="com.luis.servicios.ManagerConocimientos">
+     <property name="sessionFactory" ref="sessionFactory" />
+ </bean>
+ <bean id="managerPuesto" 
+       class="com.luis.servicios.ManagerPuestos">
      <property name="sessionFactory" ref="sessionFactory" />
  </bean>
  <tx:annotation-driven transaction-manager="txManager"  
