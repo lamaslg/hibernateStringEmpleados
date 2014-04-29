@@ -25,7 +25,6 @@
                 <prop key="index.htm">indexController</prop>
                 <prop key="hola.htm">holaController</prop>
                 <prop key="gestionEmpleados.htm">geController</prop>
-                <prop key="empleados.htm">empleadosController</prop>
                 <prop key="conocimientos.htm">conocimientosController</prop>
             </props>
         </property>
@@ -50,8 +49,7 @@
     <bean name="holaController"
           class="com.luis.controllers.HolaMundoController"
            />
-    <bean name="empleadosController"
-        class="com.luis.controllers.EmpleadosController"     />
+   
       <bean name="conocimientosController"
         class="com.luis.controllers.ConocimientosController"     />
 </beans>

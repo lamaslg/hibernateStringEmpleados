@@ -33,7 +33,7 @@ public class EmpleadosController implements BeanFactoryAware{
 
   
    // @Override
-    @RequestMapping(value="/emple.htm")
+    @RequestMapping(value="/empleados.htm")
     public ModelAndView handleRequest(HttpServletRequest hsr,
             HttpServletResponse hsr1) throws Exception {
         
